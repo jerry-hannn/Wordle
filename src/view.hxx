@@ -22,15 +22,15 @@ public:
 
     std::string initial_window_title() const;
 
-    // Converts an abstract board position to a concrete screen
-    // position.
-    Position
-    board_to_screen(Model::Position board_pos) const;
-
-    // Converts a concrete screen (pixel) position to an abstract board
-    // position.
-    Model::Position
-    screen_to_board(Position screen_pos) const;
+    // // Converts an abstract board position to a concrete screen
+    // // position.
+    // Position
+    // board_to_screen(Model::Position board_pos) const;
+    //
+    // // Converts a concrete screen (pixel) position to an abstract board
+    // // position.
+    // Model::Position
+    // screen_to_board(Position screen_pos) const;
 
 private:
     Model const& model_;

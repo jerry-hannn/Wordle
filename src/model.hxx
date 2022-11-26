@@ -6,6 +6,7 @@
 class Model
 {
 public:
+
     enum class Letter_outcome
     {
         correct_pos,
