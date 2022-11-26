@@ -22,6 +22,10 @@ public:
 
     std::string initial_window_title() const;
 
+
+    //TODO
+    // Pretty sure we will need these, haven't been able to figure out how.
+
     // // Converts an abstract board position to a concrete screen
     // // position.
     // Position
