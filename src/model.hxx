@@ -21,6 +21,7 @@ public:
     using Pos_check_vector = std::vector<Letter_outcome>;
 
     // Check if typed word is correct. (might use strcmp)
+    bool check_word(std::string const& word) const;
 
 
     // if character is in the word but wrong pos (will update the pos_check
