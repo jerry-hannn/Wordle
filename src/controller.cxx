@@ -1,7 +1,6 @@
 #include "controller.hxx"
 
-
-// Controller::Controller()
+// void Controller::Controller()
 //         : view_(model_)
 // { }
 static std::vector<std::string>
@@ -27,29 +26,37 @@ Controller::Controller(std::string const& filename)
 { }
 
 Controller::Controller(std::vector<std::string> words)
-            : model_(words),
-              view_(model_)
+        : model_(words),
+          view_(model_)
 
 {
 
 }
-
-
-
-
-
 void
 Controller::draw(ge211::Sprite_set& set)
 {
     view_.draw(set);
 }
 
-// on key press
 void
 Controller::on_key(ge211::Key key)
 {
+    if (key.code() == '\r')
+    {
+        model_.hit_enter();
+    }
+    else
+    {
+        model_.hit_key(char(key.code()));
+        model_.set_char_count();
+    }
 
-    model_.hit_key(char(key.code()));
-    model_.set_char_count();
+
+    //    if (model_.game_is_finished()) {
+    //        model_ = Model {"gameover"};
+    //    }
+    //
+    //    if (model_.typing_progress().empty()) {
+    //        load_word_();
+    //    }
 }
-

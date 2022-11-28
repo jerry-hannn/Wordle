@@ -2,11 +2,11 @@
 
 #include <ge211.hxx>
 #include <cctype>
+#include <iostream>
 
 class Model
 {
 public:
-
     enum class Letter_outcome
     {
         correct_pos,
@@ -21,15 +21,10 @@ public:
     using Pos_check_vector = std::vector<Letter_outcome>;
 
     // Check if typed word is correct. (might use strcmp)
-    void check_letters(std::vector<char> char_vec) ;
-
-    // Check if typed letter is in word
-    bool char_in_word(char c, std::string word);
-
+    bool is_winner();
 
     // if character is in the word but wrong pos (will update the pos_check
     // vector)
-
     void is_char_in(char, size_t);
 
 
@@ -39,13 +34,16 @@ public:
 
     void load_next_word_();
 
-    void set_char_count();
-    void hit_key(char);
-    char get_letter(size_t) const;
+     void set_char_count();
+     void hit_key(char);
+    char get_letter(size_t,size_t) const;
     size_t get_char_count() const;
+    size_t get_tries_count() const;
+    // bool can_evaluate();
+    void hit_enter();
 
 
-
+    //
 
 private:
     std::string current_word_;
@@ -57,6 +55,10 @@ private:
     size_t word_index = 0;
     size_t char_count = 0;
     size_t letter_index = 0;
+    size_t tries=0;
+    char squares_[6][5] ;
+    bool enter_ = false;
+
 
 
 };

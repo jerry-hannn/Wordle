@@ -5,16 +5,9 @@
 class View
 {
 public:
-    /// View dimensions will use `int` coordinates.
     using Dimensions = ge211::Dims<int>;
 
-    /// View positions will use `int` coordinates.
-    using Position = ge211::Posn<int>;
-
-    /// View rectangles will use `int` coordinates.
-    using Rectangle = ge211::Rect<int>;
-
-    explicit View(Model const&);
+    explicit View(Model const& model);
 
     void draw(ge211::Sprite_set& set);
 
@@ -22,22 +15,13 @@ public:
 
     std::string initial_window_title() const;
 
-
-    //TODO
-    // Pretty sure we will need these, haven't been able to figure out how.
-
-    // // Converts an abstract board position to a concrete screen
-    // // position.
-    // Position
-    // board_to_screen(Model::Position board_pos) const;
-    //
-    // // Converts a concrete screen (pixel) position to an abstract board
-    // // position.
-    // Model::Position
-    // screen_to_board(Position screen_pos) const;
-
 private:
     Model const& model_;
+
+    ge211::Rectangle_sprite const box_sprite;
+    ge211::Rectangle_sprite const box_sprite_wrong;
+
     ge211::Font sans30_{"sans.ttf", 30};
-    ge211::Text_sprite letter_sprite_;
+    ge211::Text_sprite letter_sprite_[6][5];
+
 };

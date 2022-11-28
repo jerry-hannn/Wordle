@@ -1,40 +1,24 @@
 #include "model.hxx"
 
 
+
 Model::Model(const std::vector<std::string>& words)
         : dictionary_(words)
 
 {
     //        current_word_ = dictionary_[index];
     //        index = index + 1;
+
+    for (int r = 0; r < 6; r++) {
+        for (int c = 0; c < 5; c++) {
+            squares_[r][c] = ' ';
+        }
+    }
     load_next_word_();
 }
 
 
-void Model::check_letters(std::vector<char> char_vec)
-{
-   for (int i = 0; i < 5; i++) {
-       if (char_vec.at(i) == current_word_[i]) {
-           pos_check.push_back(Letter_outcome::correct_pos);
-       }
-       else if(char_in_word(char_vec.at(i), current_word_)) {
-           pos_check.push_back(Letter_outcome::incorrect_pos);
-       }
-       else {
-           pos_check.push_back(Letter_outcome::not_in_word);
-       }
-   }
-}
 
-bool Model::char_in_word(char c, std::string word)
-{
-    for (int i = 0; i < word.length(); i++) {
-        if (c == word[i]) {
-            return true;
-        }
-    }
-    return false;
-}
 
 void
 Model::load_next_word_()
@@ -62,27 +46,39 @@ void Model::set_char_count()
     {
         char_count++;
     }
-    else
-    {
+    else {
+        if (tries < 5)
+        {
+            tries++;
+        }
+
         char_count = 0;
     }
 }
 void Model::hit_key(char actual)
 {
-    if (char_count < 5)
-    {
-        // progress_[char_count] = actual;
-        progress_.push_back(actual);
-        // char_count = char_count + 1;
-    }
+    // if (char_count < 5)
+    // {
+    //     // progress_[char_count] = actual;
+    //     // progress_.push_back(actual);
+    //
+    //
+    //     // char_count = char_count + 1;
+    // }
+    squares_[tries][char_count] = actual;
+
+
 }
-char Model:: get_letter(size_t index) const
+char Model:: get_letter(size_t i , size_t j) const
 {
-    if (index < progress_.size())
-    {
-        return progress_[index];
-    }
-    return 'x';
+    // if (index < progress_.size())
+    // {
+    //     // std::cout << progress_[index] << '';
+    //     // return progress_[index];
+    //     return
+    // }
+
+    return squares_[i][j];
 }
 size_t Model::get_char_count() const
 {
@@ -95,3 +91,12 @@ size_t Model::get_char_count() const
 //
 //     }
 // }
+
+size_t Model::get_tries_count() const
+{
+    return tries;
+}
+void Model::hit_enter()
+{
+    enter_ = true;
+}
