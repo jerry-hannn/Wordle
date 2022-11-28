@@ -11,7 +11,7 @@ Model::Model(const std::vector<std::string>& words)
 }
 
 
-void Model::check_letters(std::vector<char> char_vec) 
+void Model::check_letters(std::vector<char> char_vec)
 {
    for (int i = 0; i < 5; i++) {
        if (char_vec.at(i) == current_word_[i]) {
