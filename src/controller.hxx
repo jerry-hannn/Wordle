@@ -16,6 +16,7 @@ public:
     Controller( std::vector<std::string> words);
 
     // on key press
+    void on_key(ge211::Key key) override;
 
 
 protected:

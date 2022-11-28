@@ -20,6 +20,14 @@ void
 View::draw(ge211::Sprite_set& set)
 {
     // This needs to do something!
+    for(size_t i = 0; i < model_.get_char_count(); i++)
+    {
+        ge211::Text_sprite::Builder letter_builder(sans30_);
+        letter_builder << model_.get_letter(i);
+        letter_sprite_.reconfigure(letter_builder);
+        set.add_sprite(letter_sprite_, {100*int(i),100*int(i)});
+    }
+
 }
 
 std::string

@@ -11,3 +11,7 @@ TEST_CASE("example test (TODO: replace this)")
 //
 // These tests should demonstrate your functional requirements.
 //
+
+TEST_CASE("test current word"){
+
+}

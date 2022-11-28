@@ -38,4 +38,6 @@ public:
 
 private:
     Model const& model_;
+    ge211::Font sans30_{"sans.ttf", 30};
+    ge211::Text_sprite letter_sprite_;
 };

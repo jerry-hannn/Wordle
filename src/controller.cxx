@@ -34,7 +34,7 @@ Controller::Controller(std::vector<std::string> words)
 
 }
 
-// on key press
+
 
 
 
@@ -42,5 +42,14 @@ void
 Controller::draw(ge211::Sprite_set& set)
 {
     view_.draw(set);
+}
+
+// on key press
+void
+Controller::on_key(ge211::Key key)
+{
+
+    model_.hit_key(char(key.code()));
+    model_.set_char_count();
 }
 
