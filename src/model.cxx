@@ -18,7 +18,14 @@ Model::Model(const std::vector<std::string>& words)
 }
 
 
-
+void Model::is_char_in(char c, size_t index)
+{
+    if (current_word_[index] == c) {
+        pos_check[index] = Letter_outcome::correct_pos;
+    } else if(){
+        pos_check[index] = Letter_outcome::incorrect_pos;
+    }
+}
 
 void
 Model::load_next_word_()

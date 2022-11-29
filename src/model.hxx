@@ -25,9 +25,9 @@ public:
 
     // if character is in the word but wrong pos (will update the pos_check
     // vector)
-    void is_char_in(char, size_t);
+    void is_char_in(char);
 
-
+    bool char_in_word(char);
 
     //checks if 5 letters are typed in
     bool is_5_letters();
