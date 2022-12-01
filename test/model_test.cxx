@@ -17,6 +17,27 @@ TEST_CASE("Enter the wrong word, no shared letters."){
     model.hit_key('n');
     model.set_char_count();
     CHECK(model.get_current_word() == "hello");
+
+    model.hit_enter();
+    model.check_letters();
+    model.sort_unused();
+    model.is_winner();
+    model.update_tries();
+
+    CHECK(model.get_winner() == Model::winner_type::not_yet);
+    CHECK(model.get_tries_count() == 1);
+    CHECK(model.get_pos(0,0) == Model::Letter_outcome::not_in_word);
+    CHECK(model.get_pos(0,1) == Model::Letter_outcome::not_in_word);
+    CHECK(model.get_pos(0,2) == Model::Letter_outcome::not_in_word);
+    CHECK(model.get_pos(0,3) == Model::Letter_outcome::not_in_word);
+    CHECK(model.get_pos(0,4) == Model::Letter_outcome::not_in_word);
+    CHECK(model.size_unused() == 5);
+    CHECK(model.get_unused(0) == 'w');
+    CHECK(model.get_unused(1) == 'a');
+    CHECK(model.get_unused(2) == 'v');
+    CHECK(model.get_unused(3) == 'i');
+    CHECK(model.get_unused(4) == 'n');
+    
 }
 
 //checks entering the wrong word 6 times. Should end with a loss.
