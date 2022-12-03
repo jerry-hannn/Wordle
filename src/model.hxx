@@ -27,7 +27,7 @@ public:
 
     using Pos_check_vector = std::vector<Letter_outcome>;
 
-    // Check if typed word is correct. (might use strcmp)
+    // Check if there is a winner
     void is_winner();
 
 
@@ -48,7 +48,6 @@ public:
     char get_letter(size_t,size_t) const;
     size_t get_char_count() const;
     size_t get_tries_count() const;
-    // bool can_evaluate();
     void hit_enter();
     Letter_outcome get_pos(int row,int col)const;
     void update_tries();
@@ -58,7 +57,6 @@ public:
     void delete_char();
     std::string get_current_word()const;
 
-    //
 
 private:
     std::string current_word_;

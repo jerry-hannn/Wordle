@@ -39,44 +39,7 @@ View::draw(ge211::Sprite_set& set)
             set.add_sprite(box_sprite_empty, {border_buffer + i*grid_size_guess, border_buffer +j*(grid_size_guess+inbetween)});
         }
     }
-    //
-    // int count = 0;
-    // for (int j = 0; j < 3; j++)
-    // {
-    //     for (int i = 0; i < 10; i++)
-    //     {
-    //         // set.add_sprite(box_sprite, {50,900});
-    //         if (count < 26)
-    //         {
-    //             set.add_sprite(box_sprite_wrong, {border_buffer + i*grid_size_wrong,
-    //                                               wrong_start +j*(grid_size_wrong)});
-    //             count = count + 1;
-    //         }
-    //
-    //     }
-    // }
-    // model_.letter_;
 
-    // for(size_t i = 0; i < model_.get_char_count(); i++)
-    // {
-    //     ge211::Text_sprite::Builder letter_builder(sans30_);
-    //     letter_builder << model_.get_letter(i);
-    //     letter_sprite_.reconfigure(letter_builder);
-    //     set.add_sprite(letter_sprite_, {100*int(i),100*int(i)});
-    // }
-
-    // for(size_t j = 0; j <= model_.get_tries_count(); j++) {
-    //     for (size_t i = 0; i < model_.get_char_count(); i++) {
-    //         ge211::Text_sprite::Builder letter_builder(sans30_);
-    //         letter_builder << model_.get_letter(i);
-    //
-    //         letter_sprite_.reconfigure(letter_builder);
-    //         set.add_sprite(letter_sprite_,
-    //                        {border_buffer + int(i) * grid_size_guess,
-    //                         border_buffer + int(j) * (grid_size_guess +
-    //                         inbetween)});
-    //     }
-    // }
     ge211::Text_sprite::Builder name_builder4(sans20_);
     name_builder4.color(white);
     name_builder4<<"Instructions";
@@ -200,21 +163,16 @@ View::draw(ge211::Sprite_set& set)
         }
         c++;
     }
-    // set.add_sprite(box_sprite_wrong, {0,500});
-    // set.add_sprite(box_sprite, {50,50});
-    // set.add_sprite(box_sprite, {100,50});
 }
 
 View::Dimensions
 View::initial_window_dimensions() const
 {
-    // You can change this if you want:
     return {800,650};
 }
 
 std::string
 View::initial_window_title() const
 {
-    // You can change this if you want:
     return "Wordle";
 }

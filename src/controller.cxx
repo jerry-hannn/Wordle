@@ -1,8 +1,5 @@
 #include "controller.hxx"
 
-// void Controller::Controller()
-//         : view_(model_)
-// { }
 static std::vector<std::string>
 load_dictionary(std::string const& filename)
 {
@@ -42,24 +39,14 @@ void
 Controller::on_key(ge211::Key key)
 {
 
-    // if(key.type() == ge211::Key::Type::control)
-    // {
-    //     quit();
-    //     // model_.load_next_word_();
-    // }
     if(key.code() == '1' )
     {
         quit();
-        // model_.load_next_word_();
     }
-        // if(key.type() == ge211::Key::Type::up)
-        // {
-        //     model_.load_next_word_();
-        // }
+
     else if(key.code() == '2' )
     {
         model_.load_next_word_();
-        // model_.load_next_word_();
     }
 
     if((key.code() >= 65 && key.code() <= 122) || key.code() == '\r'|| key
@@ -102,16 +89,10 @@ Controller::on_key(ge211::Key key)
                 if (model_.get_char_count() < 5)
                 {
                     model_.hit_key(char(key.code()));
-                    // model_.set_char_count();
-                    // printf("xxxx\n");
-                    // printf("%d\n",int(model_.get_char_count()));
 
                 }
 
-                // if(model_.get_char_count() < 4)
-                // {
                 model_.set_char_count();
-                // }
 
 
             }
@@ -119,16 +100,6 @@ Controller::on_key(ge211::Key key)
     }
 
 
-
-
-
-    //    if (model_.game_is_finished()) {
-    //        model_ = Model {"gameover"};
-    //    }
-    //
-    //    if (model_.typing_progress().empty()) {
-    //        load_word_();
-    //    }
 }
 
 ge211::Dims<int>
@@ -139,7 +110,6 @@ Controller::initial_window_dimensions() const
 std::string
 Controller::initial_window_title() const
 {
-    // You can change this if you want:
     return view_.initial_window_title();
 }
 
