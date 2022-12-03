@@ -19,8 +19,9 @@ static ge211::Color const yellow{237, 237, 92};
 View::View(Model const& model)
         : model_(model),
           box_sprite_right( {(grid_size_guess-1),(grid_size_guess-1)} ,green),
-          box_sprite_wrong( {(grid_size_guess-1),(grid_size_guess-1)} ,grey),
+          // Shouldn't need this
           box_sprite_bad_pos({(grid_size_guess-1),(grid_size_guess-1)}, yellow),
+          box_sprite_wrong( {(grid_size_guess-1),(grid_size_guess-1)} ,grey),
           box_sprite_empty({(grid_size_guess-1),(grid_size_guess-1)}, white)
 
 
