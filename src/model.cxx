@@ -151,8 +151,11 @@ void Model::sort_unused()
 }
 void Model::delete_char()
 {
-    squares_[tries][char_count-1] = ' ';
-    char_count = char_count - 1;
+    if(char_count > 0){
+        squares_[tries][char_count-1] = ' ';
+        char_count = char_count - 1;
+    }
+
 }
 std::string Model::get_current_word() const
 {
