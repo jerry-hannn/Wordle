@@ -19,7 +19,6 @@ static ge211::Color const yellow{237, 237, 92};
 View::View(Model const& model)
         : model_(model),
           box_sprite_right( {(grid_size_guess-1),(grid_size_guess-1)} ,green),
-          // Shouldn't need this
           box_sprite_bad_pos({(grid_size_guess-1),(grid_size_guess-1)}, yellow),
           box_sprite_wrong( {(grid_size_guess-1),(grid_size_guess-1)} ,grey),
           box_sprite_empty({(grid_size_guess-1),(grid_size_guess-1)}, white)
@@ -36,7 +35,6 @@ View::draw(ge211::Sprite_set& set)
     {
         for (int i = 0; i < 5; i++)
         {
-            // set.add_sprite(box_sprite, {50,50});
             set.add_sprite(box_sprite_empty, {border_buffer + i*grid_size_guess, border_buffer +j*(grid_size_guess+inbetween)});
         }
     }
